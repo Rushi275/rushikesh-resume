@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rushikesh Kulkarni - Resume</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #eef2f7;
+    color: #333;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1B2A4A 0%, #2E5FA3 100%);
+    color: white;
+    padding: 45px 40px 35px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    top: -80px; left: -80px;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    bottom: -60px; right: -40px;
+  }
+  .avatar {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    margin: 0 auto 15px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5em; font-weight: 700; color: white;
+    border: 3px solid rgba(255,255,255,0.5);
+    position: relative; z-index: 1;
+  }
+  header h1 { font-size: 2.2em; font-weight: 700; position: relative; z-index: 1; }
+  header .tagline { font-size: 1em; margin-top: 5px; opacity: 0.9; position: relative; z-index: 1; }
+  .contact-bar {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
+    margin-top: 15px; position: relative; z-index: 1;
+  }
+  .contact-bar span {
+    background: rgba(255,255,255,0.15);
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 0.82em; backdrop-filter: blur(4px);
+  }
+
+  /* ── LAYOUT ── */
+  .wrapper {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: translateY(-2px); }
+
+  .card h2 {
+    color: #1B2A4A;
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-left: 4px solid #2E5FA3;
+    padding-left: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* ── SKILLS ── */
+  .skills span {
+    display: inline-block;
+    background: linear-gradient(135deg, #1B2A4A, #2E5FA3);
+    color: white;
+    padding: 5px 13px;
+    border-radius: 20px;
+    margin: 4px;
+    font-size: 0.78em;
+    font-weight: 500;
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-item {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  .lang-name { font-size: 0.9em; font-weight: 500; }
+  .lang-bar-bg {
+    flex: 1; height: 7px;
+    background: #eef2f7;
+    border-radius: 10px;
+    margin: 0 12px;
+    overflow: hidden;
+  }
+  .lang-bar { height: 100%; border-radius: 10px;
+    background: linear-gradient(90deg, #1B2A4A, #2E5FA3); }
+  .lang-level { font-size: 0.75em; color: #888; min-width: 50px; text-align: right;}
+
+  /* ── HOBBIES ── */
+  .hobby-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hobby-item {
+    display: flex; align-items: center; gap: 8px;
+    background: #eef2f7;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #1B2A4A;
+  }
+  .hobby-item span { font-size: 1.2em; }
+
+  /* ── EDUCATION ── */
+  .edu-item { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0; }
+  .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .edu-item strong { display: block; font-size: 0.92em; color: #1B2A4A; }
+  .edu-item span { font-size: 0.82em; color: #777; }
+
+  /* ── PROJECTS ── */
+  .project-item { margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid #f0f0f0; }
+  .project-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .project-header { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+  .project-header strong { font-size: 0.92em; color: #1B2A4A; }
+  .year-tag {
+    background: #e8f0fb; color: #2E5FA3;
+    padding: 2px 8px; border-radius: 10px;
+    font-size: 0.72em; font-weight: 600;
+  }
+  .project-item p { font-size: 0.83em; color: #555; line-height: 1.6; }
+  .tech-used { font-size: 0.77em; color: #2E5FA3; margin-top: 5px; font-weight: 500; }
+
+  /* ── CERTIFICATIONS ── */
+  .cert-item { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 0.88em; }
+  .cert-dot { width: 8px; height: 8px; background: #2E5FA3; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 20px;
+    color: #aaa; font-size: 0.8em;
+    max-width: 960px; margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 650px) {
+    .wrapper { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="avatar">RK</div>
+  <h1>Rushikesh Kulkarni</h1>
+  <p class="tagline">B.Tech – Electronics &amp; Telecommunication Engineering</p>
+  <p class="tagline" style="font-size:0.85em; opacity:0.75;">Walchand Institute of Technology, Solapur</p>
+  <div class="contact-bar">
+    <span>📧 rushikesh@example.com</span>
+    <span>📞 +91-XXXXXXXXXX</span>
+    <span>🔗 linkedin.com/in/rushikeshkulkarni</span>
+    <span>🐙 github.com/rushikeshkulkarni</span>
+  </div>
+</header>
+
+<div class="wrapper">
+
+  <!-- LEFT COLUMN -->
+  <div>
+
+    <!-- Skills -->
+    <div class="card">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <span>Linux</span>
+        <span>Bash Scripting</span>
+        <span>Git &amp; GitHub</span>
+        <span>HTML5</span>
+        <span>C / C++</span>
+        <span>Python</span>
+        <span>SSH</span>
+        <span>Networking</span>
+        <span>Arduino</span>
+        <span>Raspberry Pi</span>
+        <span>IoT</span>
+      </div>
+    </div>
+
+    <!-- Languages Known -->
+    <div class="card">
+      <h2>Languages Known</h2>
+
+      <div class="lang-item">
+        <span class="lang-name">Marathi</span>
+        <div class="lang-bar-bg"><div class="lang-bar" style="width:100%"></div></div>
+        <span class="lang-level">Native</span>
+      </div>
+
+      <div class="lang-item">
+        <span class="lang-name">Hindi</span>
+        <div class="lang-bar-bg"><div class="lang-bar" style="width:95%"></div></div>
+        <span class="lang-level">Fluent</span>
+      </div>
+
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <div class="lang-bar-bg"><div class="lang-bar" style="width:80%"></div></div>
+        <span class="lang-level">Proficient</span>
+      </div>
+
+    </div>
+
+    <!-- Hobbies -->
+    <div class="card">
+      <h2>Hobbies &amp; Interests</h2>
+      <div class="hobby-grid">
+        <div class="hobby-item"><span>💻</span> Coding</div>
+        <div class="hobby-item"><span>🔧</span> Electronics Tinkering</div>
+        <div class="hobby-item"><span>📡</span> Networking</div>
+        <div class="hobby-item"><span>📚</span> Reading Tech Blogs</div>
+        <div class="hobby-item"><span>🎮</span> Gaming</div>
+        <div class="hobby-item"><span>🚴</span> Cycling</div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="card">
+      <h2>Certifications</h2>
+      <div class="cert-item"><div class="cert-dot"></div> NPTEL – The Linux Command Line (2024)</div>
+      <div class="cert-item"><div class="cert-dot"></div> Other certifications as applicable</div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div>
+
+    <!-- Objective -->
+    <div class="card">
+      <h2>Objective</h2>
+      <p style="font-size:0.9em; line-height:1.7; color:#555;">
+        Motivated Electronics and Telecommunication Engineering student with a strong interest in Linux systems,
+        embedded hardware, and IoT technologies. Seeking opportunities to apply hands-on technical skills in
+        real-world engineering projects and contribute to innovative solutions.
+      </p>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+      <h2>Education</h2>
+      <div class="edu-item">
+        <strong>B.Tech – Electronics &amp; Telecommunication Engineering</strong>
+        <span>Walchand Institute of Technology, Solapur &nbsp;|&nbsp; 2022 – 2026</span>
+      </div>
+      <div class="edu-item">
+        <strong>HSC (12th)</strong>
+        <span>Board Name, Year &nbsp;|&nbsp; Percentage: XX%</span>
+      </div>
+      <div class="edu-item">
+        <strong>SSC (10th)</strong>
+        <span>Board Name, Year &nbsp;|&nbsp; Percentage: XX%</span>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="card">
+      <h2>Projects</h2>
+
+      <div class="project-item">
+        <div class="project-header">
+          <strong>Linux Lab Portfolio</strong>
+          <span class="year-tag">2024</span>
+        </div>
+        <p>Hands-on Linux experiments including CLI usage, shell scripting, SSH configuration, Apache2 web hosting, and Git version control. Hosted personal resume on a locally deployed Ubuntu server.</p>
+        <p class="tech-used">🛠 Linux · Apache2 · Git · HTML5 · SSH</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <strong>Smart Home Automation using IoT</strong>
+          <span class="year-tag">2024</span>
+        </div>
+        <p>Designed a home automation system using Raspberry Pi and Arduino to control home appliances remotely via a mobile app over Wi-Fi. Integrated temperature and motion sensors for smart triggers.</p>
+        <p class="tech-used">🛠 Python · Arduino IDE · Raspberry Pi · MQTT</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <strong>Automated Attendance System using RFID</strong>
+          <span class="year-tag">2023</span>
+        </div>
+        <p>Built a contactless student attendance system using RFID cards and Arduino Uno. Each card tap was logged with a timestamp into a CSV file, eliminating manual attendance.</p>
+        <p class="tech-used">🛠 C++ · Arduino · RFID RC522 Module</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <strong>Network Port Scanner using Python</strong>
+          <span class="year-tag">2024</span>
+        </div>
+        <p>Developed a command-line tool in Python to scan open ports on a given IP address using socket programming. Useful for basic network diagnostics and understanding TCP/IP communication.</p>
+        <p class="tech-used">🛠 Python · Socket Library · Linux CLI</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Rushikesh Kulkarni &nbsp;|&nbsp; Built with HTML5 &nbsp;|&nbsp; Hosted on Ubuntu + Apache2</p>
+</footer>
+
+</body>
+</html>
